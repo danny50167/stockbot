@@ -1,0 +1,13 @@
+{
+  "id": "665030366939054131",
+  "username": "이상원",
+  "balance": 500,
+  "stocks": {
+    "AAPL": { "avg": 0, "amount": 0 },
+    "TSLA": { "avg": 0, "amount": 0 },
+    "NFLX": { "avg": 0, "amount": 0 },
+    "AMZN": { "avg": 0, "amount": 0 },
+    "META": { "avg": 0, "amount": 0 }
+  }
+}
+
