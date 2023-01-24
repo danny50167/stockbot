@@ -1,13 +1,18 @@
+const fs = require("node:fs");
+const path = require("node:path");
+const { apiKey } = require("../../config.json");
+
 const updateStocks = () => {
-  let stockInfo = JSON.parse(
-    fs.readFileSync("DB/stockInfo.json", { encoding: "utf-8" })
-  );
+  const dirPath = path.join(__dirname, "../../DB");
+  console.log(dirPath);
+  const jsonPath = dirPath + "/stockInfo.json";
+  let stockInfo = JSON.parse(fs.readFileSync(jsonPath, { encoding: "utf-8" }));
   const date = new Date().toISOString().substring(0, 10);
 
   if (date == stockInfo.update) return;
 
   stockInfo.update = date;
-  fs.writeFileSync("DB/stockInfo.json", JSON.stringify(stockInfo), {
+  fs.writeFileSync(jsonPath, JSON.stringify(stockInfo), {
     encoding: "utf-8",
   });
 
@@ -22,7 +27,7 @@ const updateStocks = () => {
 
       stockInfo[key] = price;
 
-      fs.writeFileSync("DB/stockInfo.json", JSON.stringify(stockInfo), {
+      fs.writeFileSync(jsonPath, JSON.stringify(stockInfo), {
         encoding: "utf-8",
       });
     });
