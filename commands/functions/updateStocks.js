@@ -1,6 +1,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const { apiKey } = require("../../config.json");
+const axios = require("axios");
 
 const updateStocks = () => {
   const dirPath = path.join(__dirname, "../../DB");
